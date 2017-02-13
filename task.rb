@@ -1,3 +1,5 @@
+require 'date'
+
 class Task < Post
 
   def initialize
@@ -7,6 +9,13 @@ class Task < Post
   end
 
   def read_from_console
+    puts "Что надо сделать?"
+    @text = STDIN.gets.chomp
+
+    puts "К какому числу? Укажит дату в формате ДД.ММ.ГГГГ, например 12.05.2003"
+    input = STDIN.gets.chomp
+
+    @due_date = Date.parse(input)
   end
 
   def to_strings
